@@ -14,8 +14,8 @@ namespace DoTerraWeb.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "Essential Oils", DisplayOrder = 1 },
-                new Category { Id = 2, Name = "Accessories", DisplayOrder = 2 }
+                new Category { Id = 1, Name = "Óleos Essenciais", DisplayOrder = 1 },
+                new Category { Id = 2, Name = "Acessórios", DisplayOrder = 2 }
                 );
         }
     }

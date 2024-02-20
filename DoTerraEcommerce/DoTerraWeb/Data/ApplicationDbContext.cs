@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DoTerraWeb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DoTerraWeb.Data
 {
@@ -6,7 +7,8 @@ namespace DoTerraWeb.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
         {
-
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }

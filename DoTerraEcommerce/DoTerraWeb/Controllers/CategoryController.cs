@@ -1,6 +1,7 @@
 ﻿using DoTerraWeb.Data;
 using DoTerraWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DoTerraWeb.Controllers
 {
@@ -27,6 +28,11 @@ namespace DoTerraWeb.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
+            if(obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "Os campos Nome e Número de identificação não podem ser iguais");
+            }
+
             if(ModelState.IsValid)
             {
                 _db.Categories.Add(obj);

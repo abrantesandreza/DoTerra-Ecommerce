@@ -97,19 +97,20 @@ namespace DoTerraWeb.Controllers
             return View(categoryFromDb);
         }
 
-        [HttpPost]
-        public IActionResult Delete(Category obj)
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int id)
         {
-            if (ModelState.IsValid)
+            Category? categoryFromDb = _db.Categories.FirstOrDefault(u => u.Id == id);
+            if(categoryFromDb == null)
             {
-                _db.Categories.Remove(obj);
-                _db.SaveChanges();
-                TempData["success"] = "Categoria removida com sucesso!";
-
-                return RedirectToAction("Index");
+                return NotFound();
             }
+            
+            _db.Categories.Remove(categoryFromDb);
+            _db.SaveChanges();
+            TempData["success"] = "Categoria removida com sucesso!";
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

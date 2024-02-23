@@ -1,0 +1,31 @@
+﻿@model Category
+
+<form method="post">
+    <div class="p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary p-0">Deletar categoria</h2>
+            <br />
+            <h5 class="text-danger p-0">Tem certeza que deseja exluir esta categoria? Não será possível reverter esta ação.</h5>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="DisplayOrder" class="p-0"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger p-0"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-6">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary form-control">Voltar</a>
+            </div>
+            <div class="col-6 col-md-6">
+                <button type="submit" class="btn btn-danger form-control">Deletar</button>
+            </div>
+        </div>
+
+    </div>
+</form>

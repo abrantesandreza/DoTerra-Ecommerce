@@ -37,6 +37,7 @@ namespace DoTerraWeb.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Categoria criada com sucesso!";
 
                 return RedirectToAction("Index");
             }
@@ -72,6 +73,7 @@ namespace DoTerraWeb.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Categoria atualizada com sucesso!";
 
                 return RedirectToAction("Index");
             }
@@ -102,6 +104,7 @@ namespace DoTerraWeb.Controllers
             {
                 _db.Categories.Remove(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Categoria removida com sucesso!";
 
                 return RedirectToAction("Index");
             }

@@ -1,4 +1,4 @@
-using DoTerraWeb.Models;
+using DoTerra.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata.Ecma335;
 
-namespace DoTerraWeb.Models
+namespace DoTerra.Models
 {
     public class Category
     {

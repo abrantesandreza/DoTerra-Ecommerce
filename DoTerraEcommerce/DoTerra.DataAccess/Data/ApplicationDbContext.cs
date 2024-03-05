@@ -1,7 +1,7 @@
-﻿using DoTerraWeb.Models;
+﻿using DoTerra.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoTerraWeb.Data
+namespace DoTerra.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

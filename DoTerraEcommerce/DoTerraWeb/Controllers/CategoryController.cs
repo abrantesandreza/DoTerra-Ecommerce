@@ -1,5 +1,5 @@
-﻿using DoTerraWeb.Data;
-using DoTerraWeb.Models;
+﻿using DoTerra.DataAccess.Data;
+using DoTerra.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 

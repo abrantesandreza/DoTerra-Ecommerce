@@ -1,4 +1,4 @@
-namespace DoTerraWeb.Models
+namespace DoTerra.Models
 {
     public class ErrorViewModel
     {

@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoTerraWeb", "DoTerraWeb\DoTerraWeb.csproj", "{547D6F1A-37C3-4981-B4A9-D5FF7A36158F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoTerraWeb", "DoTerraWeb\DoTerraWeb.csproj", "{547D6F1A-37C3-4981-B4A9-D5FF7A36158F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoTerra.DataAccess", "DoTerra.DataAccess\DoTerra.DataAccess.csproj", "{96B944C0-9C0F-4B92-AC02-89B70F86DD34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoTerra.Models", "DoTerra.Models\DoTerra.Models.csproj", "{B440C9B9-8F4F-4B36-818A-8CFC2700A2E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoTerra.Utility", "DoTerra.Utility\DoTerra.Utility.csproj", "{17CBCDFC-024C-4FF9-B41E-A5B95FF10C4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{547D6F1A-37C3-4981-B4A9-D5FF7A36158F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{547D6F1A-37C3-4981-B4A9-D5FF7A36158F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{547D6F1A-37C3-4981-B4A9-D5FF7A36158F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B944C0-9C0F-4B92-AC02-89B70F86DD34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B944C0-9C0F-4B92-AC02-89B70F86DD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B944C0-9C0F-4B92-AC02-89B70F86DD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B944C0-9C0F-4B92-AC02-89B70F86DD34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B440C9B9-8F4F-4B36-818A-8CFC2700A2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B440C9B9-8F4F-4B36-818A-8CFC2700A2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B440C9B9-8F4F-4B36-818A-8CFC2700A2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B440C9B9-8F4F-4B36-818A-8CFC2700A2E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17CBCDFC-024C-4FF9-B41E-A5B95FF10C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17CBCDFC-024C-4FF9-B41E-A5B95FF10C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17CBCDFC-024C-4FF9-B41E-A5B95FF10C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17CBCDFC-024C-4FF9-B41E-A5B95FF10C4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

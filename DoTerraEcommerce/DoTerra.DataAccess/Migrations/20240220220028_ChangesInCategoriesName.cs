@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace DoTerraWeb.Migrations
+namespace DoTerra.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class ChangesInCategoriesName : Migration

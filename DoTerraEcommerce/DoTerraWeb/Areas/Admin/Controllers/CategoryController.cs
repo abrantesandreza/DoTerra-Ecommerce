@@ -4,8 +4,9 @@ using DoTerra.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace DoTerraWeb.Controllers
+namespace DoTerraWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -28,12 +29,12 @@ namespace DoTerraWeb.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
-            if(obj.Name == obj.DisplayOrder.ToString())
+            if (obj.Name == obj.DisplayOrder.ToString())
             {
                 ModelState.AddModelError("Name", "Os campos Nome e Número de identificação não podem ser iguais");
             }
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _unitOfWork.Category.Add(obj);
                 _unitOfWork.Save();
@@ -101,7 +102,7 @@ namespace DoTerraWeb.Controllers
         public IActionResult DeletePOST(int id)
         {
             Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
-            if(categoryFromDb == null)
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }

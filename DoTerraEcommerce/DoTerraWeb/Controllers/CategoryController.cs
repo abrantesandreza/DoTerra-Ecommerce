@@ -1,4 +1,5 @@
 ﻿using DoTerra.DataAccess.Data;
+using DoTerra.DataAccess.Repository.IRepository;
 using DoTerra.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -7,16 +8,16 @@ namespace DoTerraWeb.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryController(ApplicationDbContext db)
+        public CategoryController(ICategoryRepository db)
         {
-            _db = db;
+            _categoryRepository = db;
         }
 
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _db.Categories.ToList();
+            List<Category> objCategoryList = _categoryRepository.GetAll().ToList();
             return View(objCategoryList);
         }
 
@@ -35,8 +36,8 @@ namespace DoTerraWeb.Controllers
 
             if(ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
-                _db.SaveChanges();
+                _categoryRepository.Add(obj);
+                _categoryRepository.Save();
                 TempData["success"] = "Categoria criada com sucesso!";
 
                 return RedirectToAction("Index");
@@ -52,7 +53,7 @@ namespace DoTerraWeb.Controllers
                 return NotFound();
             }
 
-            Category? categoryFromDb = _db.Categories.FirstOrDefault(u => u.Id == id);
+            Category? categoryFromDb = _categoryRepository.Get(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -71,8 +72,8 @@ namespace DoTerraWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                _db.Categories.Update(obj);
-                _db.SaveChanges();
+                _categoryRepository.Update(obj);
+                _categoryRepository.Save();
                 TempData["success"] = "Categoria atualizada com sucesso!";
 
                 return RedirectToAction("Index");
@@ -88,7 +89,7 @@ namespace DoTerraWeb.Controllers
                 return NotFound();
             }
 
-            Category? categoryFromDb = _db.Categories.FirstOrDefault(u => u.Id == id);
+            Category? categoryFromDb = _categoryRepository.Get(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -100,14 +101,14 @@ namespace DoTerraWeb.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int id)
         {
-            Category? categoryFromDb = _db.Categories.FirstOrDefault(u => u.Id == id);
+            Category? categoryFromDb = _categoryRepository.Get(u => u.Id == id);
             if(categoryFromDb == null)
             {
                 return NotFound();
             }
-            
-            _db.Categories.Remove(categoryFromDb);
-            _db.SaveChanges();
+
+            _categoryRepository.Remove(categoryFromDb);
+            _categoryRepository.Save();
             TempData["success"] = "Categoria removida com sucesso!";
 
             return RedirectToAction("Index");

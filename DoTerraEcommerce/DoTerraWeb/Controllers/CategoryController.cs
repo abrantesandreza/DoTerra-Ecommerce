@@ -8,16 +8,15 @@ namespace DoTerraWeb.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepository _categoryRepository;
-
-        public CategoryController(ICategoryRepository db)
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _categoryRepository = db;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _categoryRepository.GetAll().ToList();
+            List<Category> objCategoryList = _unitOfWork.Category.GetAll().ToList();
             return View(objCategoryList);
         }
 
@@ -36,8 +35,8 @@ namespace DoTerraWeb.Controllers
 
             if(ModelState.IsValid)
             {
-                _categoryRepository.Add(obj);
-                _categoryRepository.Save();
+                _unitOfWork.Category.Add(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Categoria criada com sucesso!";
 
                 return RedirectToAction("Index");
@@ -53,7 +52,7 @@ namespace DoTerraWeb.Controllers
                 return NotFound();
             }
 
-            Category? categoryFromDb = _categoryRepository.Get(u => u.Id == id);
+            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -72,8 +71,8 @@ namespace DoTerraWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                _categoryRepository.Update(obj);
-                _categoryRepository.Save();
+                _unitOfWork.Category.Update(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Categoria atualizada com sucesso!";
 
                 return RedirectToAction("Index");
@@ -89,7 +88,7 @@ namespace DoTerraWeb.Controllers
                 return NotFound();
             }
 
-            Category? categoryFromDb = _categoryRepository.Get(u => u.Id == id);
+            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -101,14 +100,14 @@ namespace DoTerraWeb.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int id)
         {
-            Category? categoryFromDb = _categoryRepository.Get(u => u.Id == id);
+            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
             if(categoryFromDb == null)
             {
                 return NotFound();
             }
 
-            _categoryRepository.Remove(categoryFromDb);
-            _categoryRepository.Save();
+            _unitOfWork.Category.Remove(categoryFromDb);
+            _unitOfWork.Save();
             TempData["success"] = "Categoria removida com sucesso!";
 
             return RedirectToAction("Index");

@@ -24,5 +24,18 @@ namespace DoTerraWeb.Areas.Admin.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Product obj)
+        {
+            if(ModelState.IsValid)
+            {
+                _unitOfWork.Product.Add(obj);
+                _unitOfWork.Save();
+
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
     }
 }

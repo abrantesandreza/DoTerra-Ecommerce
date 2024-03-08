@@ -1,0 +1,60 @@
+﻿@model List<Product>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary p-0">
+                Produtos
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-success">
+                <i class="bi bi-plus-square m-2"></i> Novo produto
+            </a>
+        </div>
+    </div>
+</div>
+
+<br />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Produto
+            </th>
+            <th>
+                Código
+            </th>
+            <th>
+                Preço
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model.OrderBy(u => u.COD))
+        {
+            <tr>
+                <td>
+                    @obj.Name
+                </td>
+                <td>
+                    @obj.COD
+                </td>
+                <td>
+                    @obj.ListPrice
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="" asp-action="" asp-route-id="" class="btn btn-primary mx-2">
+                            <i class="bi bi-pencil-square m-2"></i> Editar
+                        </a>
+                        <a asp-controller="" asp-action="" asp-route-id="" class="btn btn-danger mx-2">
+                            <i class="bi bi-x-square m-2"></i> Deletar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

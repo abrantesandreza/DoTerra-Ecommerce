@@ -20,8 +20,7 @@ namespace DoTerra.DataAccess.Data
                 );
             modelBuilder.Entity<Product>().HasData(
                 new Product { Id = 1, Name = "dōTERRA Peppermint Touch", ScientificName = "Mentha piperita", 
-                            COD = 001, Size = "10 ml", ListPrice= 125, Price = 115, Price100 = 225, Price500 = 770, Price1000 = 1050,
-                            Description = "O doTERRA® Peppermint Touch contém óleo essencial de Hortelã-Pimenta e " +
+                            COD = 001, Size = "10 ml", Price= 115, Description = "O doTERRA® Peppermint Touch contém óleo essencial de Hortelã-Pimenta e " +
                             "Óleo de Coco Fracionado para promover vários benefícios. Seu aroma mentolado e herbáceo " +
                             "pode ser utilizado aromática e topicamente ao longo do dia para elevar o humor e promover " +
                             "um senso de foco. Quando aplicado nas têmporas e na nuca, ajuda a diminuir sentimentos de " +

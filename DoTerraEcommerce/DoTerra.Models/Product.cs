@@ -20,38 +20,17 @@ namespace DoTerra.Models
         [DisplayName("Nome Científico")]
         public string ScientificName  { get; set; }
         [Required]
+        [DisplayName("Código")]
         public int COD { get; set; }
         [Required]
         [DisplayName("Tamanho")]
         public string Size { get; set; }
-
         [Required]
         [DisplayName("Preço")]
         [Range(1, 1000)]
-        public double ListPrice { get; set; }
-
-        [Required]
-        [DisplayName("Preço de 1-100")]
-        [Range(1, 1000)]
         public double Price { get; set; }
-
         [Required]
-        [DisplayName("Preço de 100+")]
-        [Range(1, 1000)]
-        public double Price100 { get; set; }
-
-        [Required]
-        [DisplayName("Preço de 500+")]
-        [Range(1, 1000)]
-        public double Price500 { get; set; }
-
-        [Required]
-        [DisplayName("Preço de 1000+")]
-        [Range(1, 1000)]
-        public double Price1000 { get; set; }
-
-        [Required]
-        [DisplayName("Tamanho")]
+        [DisplayName("Descrição")]
         public string Description { get; set; }
         [Required]
         [DisplayName("Benefícios")]

@@ -13,41 +13,55 @@ namespace DoTerra.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Nome")]
+        [MaxLength(60)]
         public string Name { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Nome Científico")]
+        [MaxLength(100)]
         public string ScientificName  { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Código")]
         public int COD { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Tamanho")]
         public string Size { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Preço")]
         [Range(1, 1000)]
         public double Price { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Descrição")]
         public string Description { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Benefícios")]
         public string Benefits { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Descrição Aromática")]
         public string AromaticDescription { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Ingredientes")]
         public string Ingredients { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Usos")]
         public string Uses { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Como usar")]
         public string HowToUse { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Precauções")]
         public string Precautions { get; set; }
     }

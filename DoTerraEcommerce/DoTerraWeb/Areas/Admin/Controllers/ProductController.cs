@@ -27,6 +27,11 @@ namespace DoTerraWeb.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Product obj)
         {
+            if(obj.COD == 0)
+            {
+                ModelState.AddModelError("COD", "O código não pode ser 0");
+            }
+
             if(ModelState.IsValid)
             {
                 _unitOfWork.Product.Add(obj);

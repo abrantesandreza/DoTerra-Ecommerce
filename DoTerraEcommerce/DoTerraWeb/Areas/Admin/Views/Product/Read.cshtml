@@ -1,0 +1,105 @@
+﻿@model Product
+
+<div class="p-3 mt-4">
+    <div class="row p-1">
+        <div class="row pb-4">
+            <h2 class="text-primary p-0">Detalhes</h2>
+            <br />
+        </div>
+        <div class="mb-3 row p-0">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.ScientificName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ScientificName)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.COD)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.COD)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Size)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Size)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd>
+                    R$ @Html.DisplayFor(model => model.Price),00
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.AromaticDescription)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AromaticDescription)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Benefits)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Benefits)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ingredients)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Ingredients)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Uses)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Uses)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.HowToUse)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HowToUse)
+                </dd>
+                <br />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Precautions)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Precautions)
+                </dd>
+                <br />
+            </dl>
+        </div>
+
+        <div class="row p-1">
+            <div class="col-6 col-md-6">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary form-control">Voltar</a>
+            </div>
+        </div>
+    </div>
+</div>
+

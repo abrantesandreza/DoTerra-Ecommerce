@@ -42,5 +42,21 @@ namespace DoTerraWeb.Areas.Admin.Controllers
 
             return View();
         }
+
+        public IActionResult Read(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            Product? productFromDb = _unitOfWork.Product.Get(u => u.Id == id);
+            if (productFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(productFromDb);
+        }
     }
 }

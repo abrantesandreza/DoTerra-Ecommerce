@@ -1,0 +1,80 @@
+﻿@model Product
+
+<form method="post">
+    <div class="p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary p-0">Criar novo produto</h2>
+            <br />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ScientificName" class="p-0"></label>
+            <input asp-for="ScientificName" class="form-control" />
+            <span asp-validation-for="ScientificName" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="COD" class="p-0"></label>
+            <input asp-for="COD" class="form-control" />
+            <span asp-validation-for="COD" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Size" class="p-0"></label>
+            <input asp-for="Size" class="form-control" />
+            <span asp-validation-for="Size" class="text-danger p-0"></span>
+        </div>
+        <div class="input-group mb-3 p-0">
+            <span class="input-group-text">R$</span>
+            <input asp-for="ListPrice" class="form-control" />
+            <span class="input-group-text">,00</span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Description" class="p-0"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="AromaticDescription" class="p-0"></label>
+            <textarea asp-for="AromaticDescription" class="form-control"></textarea>
+            <span asp-validation-for="AromaticDescription" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Benefits" class="p-0"></label>
+            <textarea asp-for="Benefits" class="form-control"></textarea>
+            <span asp-validation-for="Benefits" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Ingredients" class="p-0"></label>
+            <textarea asp-for="Ingredients" class="form-control"></textarea>
+            <span asp-validation-for="Ingredients" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Uses" class="p-0"></label>
+            <input asp-for="Uses" class="form-control" />
+            <span asp-validation-for="Uses" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="HowToUse" class="p-0"></label>
+            <textarea asp-for="HowToUse" class="form-control"></textarea>
+            <span asp-validation-for="HowToUse" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Precautions" class="p-0"></label>
+            <textarea asp-for="Precautions" class="form-control"></textarea>
+            <span asp-validation-for="Precautions" class="text-danger p-0"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-6">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary form-control">Voltar</a>
+            </div>
+            <div class="col-6 col-md-6">
+                <button type="" class="btn btn-success form-control">Criar categoria</button>
+            </div>
+        </div>
+
+    </div>
+</form>

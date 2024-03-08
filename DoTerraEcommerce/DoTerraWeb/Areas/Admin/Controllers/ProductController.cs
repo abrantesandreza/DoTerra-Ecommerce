@@ -19,5 +19,10 @@ namespace DoTerraWeb.Areas.Admin.Controllers
             List<Product> productsList = _unitOfWork.Product.GetAll().ToList();
             return View(productsList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

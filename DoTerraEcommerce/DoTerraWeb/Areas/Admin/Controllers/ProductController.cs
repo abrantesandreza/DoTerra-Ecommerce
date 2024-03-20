@@ -36,6 +36,7 @@ namespace DoTerraWeb.Areas.Admin.Controllers
             {
                 _unitOfWork.Product.Add(obj);
                 _unitOfWork.Save();
+                TempData["success"] = "Categoria criada com sucesso!";
 
                 return RedirectToAction("Index");
             }
@@ -82,6 +83,7 @@ namespace DoTerraWeb.Areas.Admin.Controllers
             {
                 _unitOfWork.Product.Update(obj);
                 _unitOfWork.Save();
+                TempData["success"] = "Categoria atualizada com sucesso!";
 
                 return RedirectToAction("Index");
             }
@@ -116,6 +118,7 @@ namespace DoTerraWeb.Areas.Admin.Controllers
 
             _unitOfWork.Product.Remove(productFromDb);
             _unitOfWork.Save();
+            TempData["success"] = "Categoria removida com sucesso!";
 
             return RedirectToAction("Index");
         }

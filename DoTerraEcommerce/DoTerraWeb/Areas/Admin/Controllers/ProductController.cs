@@ -88,5 +88,36 @@ namespace DoTerraWeb.Areas.Admin.Controllers
 
             return View();
         }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            Product? productFromDb = _unitOfWork.Product.Get(u => u.Id == id);
+            if (productFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(productFromDb);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int id)
+        {
+            Product? productFromDb = _unitOfWork.Product.Get(u => u.Id == id);
+            if (productFromDb == null)
+            {
+                return NotFound();
+            }
+
+            _unitOfWork.Product.Remove(productFromDb);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Index");
+        }
     }
 }

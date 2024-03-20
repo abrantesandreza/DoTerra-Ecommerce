@@ -1,0 +1,86 @@
+﻿@model Product
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary p-0">Deletar produto</h2>
+            <br />
+            <h5 class="text-danger p-0">Tem certeza que deseja exluir este produto? Não será possível reverter esta ação.</h5>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="p-0"></label>
+            <input disabled asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ScientificName" class="p-0"></label>
+            <input disabled asp-for="ScientificName" class="form-control" />
+            <span asp-validation-for="ScientificName" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="COD" class="p-0"></label>
+            <input disabled asp-for="COD" class="form-control" />
+            <span asp-validation-for="COD" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Size" class="p-0"></label>
+            <input disabled asp-for="Size" class="form-control" />
+            <span asp-validation-for="Size" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Price" class="p-0"></label>
+            <div class="input-group mb-3 p-0">
+                <span class="input-group-text">R$</span>
+                <input disabled asp-for="Price" class="form-control" />
+                <span class="input-group-text">,00</span>
+            </div>
+            <span asp-validation-for="Price" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Description" class="p-0"></label>
+            <textarea disabled asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="AromaticDescription" class="p-0"></label>
+            <textarea disabled asp-for="AromaticDescription" class="form-control"></textarea>
+            <span asp-validation-for="AromaticDescription" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Benefits" class="p-0"></label>
+            <textarea disabled asp-for="Benefits" class="form-control"></textarea>
+            <span asp-validation-for="Benefits" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Ingredients" class="p-0"></label>
+            <textarea disabled asp-for="Ingredients" class="form-control"></textarea>
+            <span asp-validation-for="Ingredients" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Uses" class="p-0"></label>
+            <input disabled asp-for="Uses" class="form-control" />
+            <span asp-validation-for="Uses" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="HowToUse" class="p-0"></label>
+            <textarea disabled asp-for="HowToUse" class="form-control"></textarea>
+            <span asp-validation-for="HowToUse" class="text-danger p-0"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Precautions" class="p-0"></label>
+            <textarea disabled asp-for="Precautions" class="form-control"></textarea>
+            <span asp-validation-for="Precautions" class="text-danger p-0"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-6">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary form-control">Voltar</a>
+            </div>
+            <div class="col-6 col-md-6">
+                <button type="submit" class="btn btn-danger form-control">Deletar</button>
+            </div>
+        </div>
+
+    </div>
+</form>

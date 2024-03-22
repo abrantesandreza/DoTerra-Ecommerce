@@ -42,7 +42,8 @@ namespace DoTerra.DataAccess.Data
                             "Pode causar irritação cutânea. Mantenha fora do alcance de crianças. Em caso de gravidez ou tratamento, consulte o médico. " +
                             "Evite contato com os olhos, ouvidos e áreas sensíveis. Em caso de contato com os olhos, enxágue com Óleo Carreador doTERRA em " +
                             "abundância. Em caso de irritação, descontinue o uso e procure um médico. Mantenha o produto ao abrigo da luz e do calor.",
-                            CategoryId = 2
+                            CategoryId = 2,
+                            ImageUrl = ""
                             }
                 );
         }

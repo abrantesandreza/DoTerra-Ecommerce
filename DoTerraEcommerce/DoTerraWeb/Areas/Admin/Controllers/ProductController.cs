@@ -1,5 +1,6 @@
 ﻿using DoTerra.DataAccess.Repository.IRepository;
 using DoTerra.Models;
+using DoTerra.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -23,35 +24,47 @@ namespace DoTerraWeb.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
-            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category
+            ProductVM productVM = new()
+            {
+                CategoryList = _unitOfWork.Category
                 .GetAll().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
-                });
+                }),
+                Product = new Product()
+            };
 
-            ViewBag.CategoryList = CategoryList;
-
-            return View();
+            return View(productVM);
         }
+
         [HttpPost]
-        public IActionResult Create(Product obj)
+        public IActionResult Create(ProductVM productVM)
         {
-            if(obj.COD == 0)
+            if(productVM.Product.COD == 0)
             {
                 ModelState.AddModelError("COD", "O código não pode ser 0");
             }
 
             if(ModelState.IsValid)
             {
-                _unitOfWork.Product.Add(obj);
+                _unitOfWork.Product.Add(productVM.Product);
                 _unitOfWork.Save();
                 TempData["success"] = "Categoria criada com sucesso!";
 
                 return RedirectToAction("Index");
             }
+            else
+            {
+                productVM.CategoryList = _unitOfWork.Category
+                .GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString()
+                });
 
-            return View();
+                return View(productVM);
+            }
         }
 
         public IActionResult Read(int? id)

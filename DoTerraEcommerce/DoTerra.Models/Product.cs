@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,7 @@ namespace DoTerra.Models
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [DisplayName("Preço")]
-        [Range(1, 1000)]
+        [Range(0, 1000)]
         public double Price { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
@@ -67,10 +68,13 @@ namespace DoTerra.Models
         public string Precautions { get; set; }
 
         [DisplayName("Categoria do produto")]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
+        [ValidateNever]
         public Category Category { get; set; }
-
+        [ValidateNever]
+        [Required(ErrorMessage = "Este campo é obrigatório")]
         public string ImageUrl { get; set; }
     }
 }

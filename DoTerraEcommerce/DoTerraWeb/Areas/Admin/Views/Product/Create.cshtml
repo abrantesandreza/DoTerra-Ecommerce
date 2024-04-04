@@ -1,6 +1,7 @@
 ﻿@model ProductVM
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Product.Id" hidden />
     <div class="p-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary p-0">Criar novo produto</h2>
@@ -45,7 +46,6 @@
         <div class="mb-3 row p-1">
             <label asp-for="Product.Description" class="p-0"></label>
             <textarea asp-for="Product.Description" class="form-control"></textarea>
-            <span asp-validation-for="Product.Description" class="text-danger p-0"></span>
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="Product.AromaticDescription" class="p-0"></label>
@@ -64,7 +64,7 @@
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="Product.Uses" class="p-0"></label>
-            <input asp-for="Product.Uses" class="form-control" />
+            <textarea asp-for="Product.Uses" class="form-control"></textarea>
             <span asp-validation-for="Product.Uses" class="text-danger p-0"></span>
         </div>
         <div class="mb-3 row p-1">
@@ -79,8 +79,7 @@
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="Product.ImageUrl" class="p-0"></label>
-            <textarea asp-for="Product.ImageUrl" class="form-control"></textarea>
-            <span asp-validation-for="Product.ImageUrl" class="text-danger p-0"></span>
+            <input type="file" class="form-control" />
         </div>
 
         <div class="row">
@@ -96,6 +95,20 @@
 </form>
 
 @section Scripts {
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap link lists searchreplace table visualblocks wordcount checklist casechange formatpainter pageembed linkchecker a11ychecker permanentpen powerpaste advtable advcode advtemplate ai mentions tinycomments footnotes mergetags autocorrect typography inlinecss markdown',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+    </script>
     @{
         <partial name="_ValidationScriptsPartial" />
     }

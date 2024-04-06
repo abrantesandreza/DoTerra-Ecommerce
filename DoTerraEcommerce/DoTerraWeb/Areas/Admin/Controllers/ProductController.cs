@@ -67,7 +67,7 @@ namespace DoTerraWeb.Areas.Admin.Controllers
 
                 _unitOfWork.Product.Add(productVM.Product);
                 _unitOfWork.Save();
-                TempData["success"] = "Categoria criada com sucesso!";
+                TempData["success"] = "Produto criado com sucesso!";
 
                 return RedirectToAction("Index");
             }

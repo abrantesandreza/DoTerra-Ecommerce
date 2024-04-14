@@ -107,13 +107,27 @@ namespace DoTerraWeb.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            Product? productFromDb = _unitOfWork.Product.Get(u => u.Id == id);
+            // Obter o produto do banco de dados
+            Product productFromDb = _unitOfWork.Product.Get(u => u.Id == id);
             if (productFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(productFromDb);
+            // Preencher o modelo ProductVM com o produto obtido do banco de dados
+            ProductVM productVM = new()
+            {
+                CategoryList = _unitOfWork.Category
+                    .GetAll().Select(u => new SelectListItem
+                    {
+                        Text = u.Name,
+                        Value = u.Id.ToString()
+                    }),
+
+                Product = productFromDb
+            };
+
+            return View(productVM);
         }
 
         [HttpPost]

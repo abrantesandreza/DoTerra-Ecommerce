@@ -204,5 +204,17 @@ namespace DoTerraWeb.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
+        #region  API CALLS
+
+        public IActionResult GetAll()
+        {
+            List<Product> objProductsList = _unitOfWork.Product.GetAll(includeProperties: "Category").ToList();
+
+            return Json(new { data = objProductsList });
+        }
+
+        #endregion
+
     }
 }

@@ -206,7 +206,6 @@ namespace DoTerraWeb.Areas.Admin.Controllers
         }
 
         #region  API CALLS
-
         public IActionResult GetAll()
         {
             List<Product> objProductsList = _unitOfWork.Product.GetAll(includeProperties: "Category").ToList();
